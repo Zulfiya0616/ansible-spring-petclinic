@@ -4,4 +4,11 @@
     name: 
     - "java-{{ open_jdk_version }}-openjdk"
     - maven
+  when: ansible_distribution == 'Centos'
 
+- name: Install OpenJDK Ubuntu
+  apt:  
+    name: 
+    - "openjdk-{{ openjdkversion }}-jdk"
+    - maven
+  when: ansible_distribution == 'Ubuntu'
